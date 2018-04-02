@@ -1,39 +1,34 @@
 <?php namespace Models; 
 
 	
-	class connection
+	class Connection
 	{
 		
 		private $datos = array(
-			'host' =>"",
-			'port' =>"",
-			'user' =>"",
-			'pass' =>"",
-			'db' =>"" );
+			'host' =>"127.0.0.1",
+			'port' =>"5432",
+			'user' =>"franco",
+			'pass' =>"123456abc",
+			'db' =>"SRP" );
 		private $link;
 
 		public function __construct()
 		{
-			$this->link=conexion();
+			  $stringConnection="host=".$this->datos['host']." port=".$this->datos['port']. " dbname=".$this->datos['db']. " user=".$this->datos['user']. " password=".$this->datos['pass'];
+			$this->link = pg_connect($stringConnection) or die("Error al conectar con el DB".pg_last_error());
 		}
 
-		function conexion(){
-			$stringConnection="host='$this->datos['host']' port='$this->datos['port']' dbname='$this->datos['db']' user='$this->datos['user']' password='$this->datos['pass']'";
-			
-			$link=pg_connect($stringConnection);
-			return $link;
-		}
-
+		
 		public function consultaSimple($sql){
 			$query=pg_query($this->link, $sql);
-			if (!query) 
-				echo "Error al ejecutar";
+			if (!$query) 
+				echo "Error al ejecutar query";
 		}
 
 		public function consultaRetorno($sql){
 			$query=pg_query($this->link, $sql);
-			if (!query) 
-				echo "Error al ejecutar";
+			if (!$query) 
+				echo "Error al ejecutar query";
 			else
 				return $query;
 		}
