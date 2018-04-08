@@ -21,7 +21,8 @@
 	 		return $this->$atributo;
 	 	}
 
-	 	public function listar($sql){
+	 	public function listar(){
+	 		$sql="SELECT * FROM nacionalidad";
 	 		$datos= $this->con->consultaRetorno($sql);
 	 		return $datos;
 	 	}	

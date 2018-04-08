@@ -6,9 +6,9 @@
 		
 		private $datos = array(
 			'host' =>"127.0.0.1",
-			'port' =>"5432",
-			'user' =>"franco",
-			'pass' =>"123456abc",
+			'port' =>"5433",
+			'user' =>"db_hbo",
+			'pass' =>"hpbo.2018",
 			'db' =>"SRP" );
 		private $link;
 
