@@ -33,9 +33,9 @@
 				return $query;
 		}
 
-		 public function __destruct(){
-			pg_close($this->link);
-		}
+		//  public function __destruct(){
+		// 	pg_close($this->link);
+		// }
 
 	}
 
