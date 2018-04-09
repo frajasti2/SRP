@@ -40,6 +40,17 @@
 			$datos = $this->con->consultaSimple($sql);
 		}
 
+		public function buscar($atributo, $contenido){
+			$sql = "select p.cedula, p.apellido ||' '|| p.nombre as Nombre, p.fechanac, h.idhistcli  
+from paciente p inner join historiaclinica h
+on p.idpaciente = h.idpaciente 
+where p.".$atributo." = ".$contenido;
+			$datos = $this->con->consultaRetorno($sql);
+			$row = pg_fetch_row($datos);
+			return $row;
+
+		}
+
 
 
 

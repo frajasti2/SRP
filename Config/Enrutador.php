@@ -10,6 +10,13 @@
 				$metodo = "index";
 
 			$argumento = $request->getArgumento();
+			// print $controlador;
+			// 	echo '<br>';
+			// 	print $metodo;
+			// 	echo '<br>';
+			// 	print_r ($argumento);
+
+
 			if(is_readable($ruta)){
 				require_once $ruta;
 				$motrar = "Controllers\\".$controlador;
@@ -17,7 +24,7 @@
 				if(!isset($argumento)){
 					$datos = call_user_func(array($controlador, $metodo));
 				}else{
-					$datos = call_user_func_array($controlador, $metodo, $agumento);
+					$datos = call_user_func_array(array($controlador, $metodo), $argumento);
 				}
 			}
 

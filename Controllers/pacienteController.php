@@ -33,6 +33,12 @@
 
 			}
 		}
+
+		 public function listar(){
+		 	$datos = $this->paciente->buscar($_POST['atributo'] , $_POST['contenido'] );
+		 	return $datos;
+		 }
+
 	}
 
 	$paciente = new pacienteController();

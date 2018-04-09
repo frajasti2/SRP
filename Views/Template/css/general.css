@@ -15,6 +15,7 @@ footer{
 	width: 60%;
 }
 .titulo{
+	padding-top: 1em;
 	text-align: center;
 }
 .imagen-avatar{
