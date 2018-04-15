@@ -8,8 +8,8 @@
 			<form action="<?php echo URL; ?>paciente/listar" method="POST">
 			<fieldset>
 				  <div class="form-group">
-				    <select class="custom-select" name="atributo">
-				      <option selected="">Seleccione un filtro</option>
+				    <select class="custom-select" name="atributo" required>
+				      <option value="">Seleccione un filtro</option>
 				      <option value="apellido">Apellidos</option>
 				      <option value="nombre">Nombres</option>
 				      <option value="cedula">Cedula</option>

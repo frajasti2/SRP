@@ -37,19 +37,19 @@
 
 		public function add(){
 			$sql = "select insert_paciente($this->cedula, '$this->nombre','$this->apellido', '$this->sexo', '$this->fechaN','$this->tipoS',$this->lugN, $this->lugR,'$this->direccion',$this->telefono)";
-			$datos = $this->con->consultaSimple($sql);
+			$datos = $this->con->consultaRetorno($sql);
 		}
 
 		public function buscar($atributo, $contenido){
 			$sql = "select p.cedula, p.apellido ||' '|| p.nombre as Nombre, p.fechanac, h.idhistcli  
 from paciente p inner join historiaclinica h
 on p.idpaciente = h.idpaciente 
-where p.".$atributo." = ".$contenido;
+where p.".$atributo." ::text like "."'%".$contenido."%'";
 			$datos = $this->con->consultaRetorno($sql);
-			$row = pg_fetch_row($datos);
-			return $row;
-
+			return $datos;
 		}
+
+	
 
 
 

@@ -1,13 +1,16 @@
 <?php namespace Controllers;
 
 	use Models\Paciente as Paciente;
+	use Models\Nacionalidad as Nacionalidad;
 
 	class pacienteController{
 
 		private $paciente;
+		private $nacionalidad;
 
 		public function __construct(){
 			$this->paciente = new Paciente();
+			$this->nacionalidad = new Nacionalidad();
 		}
 
 		public function index(){
@@ -24,12 +27,14 @@
 				$this->paciente->set("sexo",$_POST['sexo']);
 				$this->paciente->set("fechaN",$_POST['fechaN']);
 				$this->paciente->set("tipoS", $_POST['tipoS']);
-				$this->paciente->set("lugN", $_POST['id_lugN']);
-				$this->paciente->set("lugR", $_POST['id_lugR']);
+				$this->paciente->set("lugN", $_POST['cbx_canton']);
+				$this->paciente->set("lugR", $_POST['cbx_ciudad2']);
 				$this->paciente->set("direccion", $_POST['direccion']);
 				$this->paciente->set("telefono", $_POST['telefono']);
-				$this->paciente->add();
+				$datos = $this->paciente->add();
+				return $datos;
 				print "pendiente el header location";
+				header("Location: " . URL . "paciente");
 
 			}
 		}
@@ -39,6 +44,12 @@
 		 	return $datos;
 		 }
 
+
+		 public function listarPais(){
+		 	$datos = $this->nacionalidad->listar();
+		 	return $datos;
+
+		 }
 	}
 
 	$paciente = new pacienteController();

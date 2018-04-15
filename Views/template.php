@@ -16,6 +16,8 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo URL;?>Views/template/css/bootstrap.css">
 		
 		<link rel="stylesheet" type="text/css" href="<?php echo URL;?>Views/template/css/general.css">
+		
+		
 	</head>
 	<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -32,8 +34,8 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" href="#"  aria-expanded="false">Pacientes</a>
 				<ul class="dropdown-menu" role="menu">
-		            <li><a href="#">Buscar</a></li>
-		            <li><a href="#">Agregar</a></li>
+		            <li><a href="<?php echo URL; ?>paciente">Buscar</a></li>
+		            <li><a href="<?php echo URL; ?>paciente/agregar">Agregar</a></li>
 		         </ul>
       </li>
 

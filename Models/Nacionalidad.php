@@ -22,10 +22,23 @@
 	 	}
 
 	 	public function listar(){
-	 		$sql="SELECT * FROM nacionalidad";
+	 		$sql="SELECT idnacionalidad, pais FROM nacionalidad";
 	 		$datos= $this->con->consultaRetorno($sql);
 	 		return $datos;
 	 	}	
+
+	 	public function listarProvincia($id){
+	 		$sql = "SELECT idprovincia, provincia FROM provincia where idnacionalidad = '".$id."'";
+
+	 		$datos = $this->consultaRetorno($sql);
+	 		return $datos;
+	 	}
+
+	 	public function listarCiudad($id){
+	 		$sql = "select * from canton where idprovincia = ".$id;
+	 		$datos = $this->consultaRetorno($sql);
+	 		return $datos;
+	 	}
 
 
 
